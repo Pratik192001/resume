@@ -1,0 +1,15 @@
+# Move to .github/workflows/ci.yml in the real repo.
+name: ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mymindstorm/setup-emsdk@v14
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: cmake -S vecu -B vecu/build && cmake --build vecu/build
+      - run: npm ci && npm run build && npm test
+      - uses: actions/upload-artifact@v4
+        with: { name: dist, path: dist }

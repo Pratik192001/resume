@@ -1,33 +1,18 @@
 # Hackathon / Showcase Projects
 
-Four project skeletons targeting Bosch internal showcase + external hackathons.
-Each is sized for a **3–4 week solo or small-team build**.
+Four Bosch-internal-showcase candidate projects. Each is scoped to **3–4 weeks** of solo work and is designed to be demoable end-to-end.
 
-| # | Project | One-line | Folder |
-|---|---|---|---|
-| 1 | **DTiL** | Browser-based virtual ECU + HIL replacement (WASM) | [`./dtil`](./dtil) |
-| 2 | **AutosarLens** | Real-time LSP for ARXML — validate as you type | [`./autosarlens`](./autosarlens) |
-| 3 | **CalibGuard** | Safety-aware A2L/DCM calibration diff & reviewer | [`./calibguard`](./calibguard) |
-| 4 | **FuSa-Sentinel** | Continuous ISO 26262 verification in CI (DevSafetyOps) | [`./fusa-sentinel`](./fusa-sentinel) |
+| # | Folder | One-liner | Primary domain |
+|---|--------|-----------|----------------|
+| 1 | [`dtil/`](./dtil) | **DigitalTwin-in-the-Loop** — Drag a `.hex` into the browser, run an ECU in WASM, watch signals live | AUTOSAR + WebAssembly + React |
+| 2 | [`autosarlens/`](./autosarlens) | **AutosarLens** — Real LSP that validates ARXML as you type, with safe cross-file rename | AUTOSAR + Language Servers |
+| 3 | [`calibguard/`](./calibguard) | **CalibGuard** — Safety-aware A2L/DCM diff with ISO-26262 risk scoring + audit PDF | Calibration + FuSa |
+| 4 | [`fusa-sentinel/`](./fusa-sentinel) | **FuSa-Sentinel** — CI gate that blocks PRs that weaken the ISO 26262 safety case | DevSafetyOps + ISO 26262 |
 
 Each project folder contains:
-- `README.md` — pitch + week-by-week roadmap + scope-cut plan
-- `ARCHITECTURE.md` — system architecture & tech-stack justification
-- `ci.yml` — sample CI workflow (copy to repo root `.github/workflows/` when extracting)
-- Folder skeleton with stub source files
-- `docs/pitch.md` — 2-minute showcase pitch script
+- `README.md` — week-by-week roadmap, scope-cut plan
+- `ARCHITECTURE.md` — system diagram + tech-stack justification
+- `docs/pitch.md` — 2-minute internal-showcase pitch script
+- A runnable skeleton (build config, key source files, sample fixtures)
 
-## Recommended pick order
-
-1. **DTiL** — most unique, highest wow-factor, hits both Automotive + WebDev resumes.
-2. **AutosarLens** — highest internal-adoption potential at Bosch.
-3. **CalibGuard** — blue-ocean inside Bosch FuSa/calibration teams.
-4. **FuSa-Sentinel** — invents the category of "DevSafetyOps".
-
-## Extracting a project to its own repo later
-
-When you're ready to make any of these a standalone repo:
-```bash
-git subtree split --prefix=projects/dtil -b dtil-only
-# then push dtil-only to a new repo's main branch
-```
+> **Author:** Pratik Koratkar — Lead Integrator, Bosch GS
